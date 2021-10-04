@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Bike } from '../bike';
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
-import { BikeService } from "src/app/bikes/bike.service";
+import { BikeService } from "../bike.service";
 import { Location } from '@angular/common';
-import { Observable } from "rxjs";
+import { Observable, pipe } from "rxjs";
 import { switchMap } from "rxjs/operators";
 
 @Component({
@@ -29,11 +29,17 @@ export class BikeInfoComponent implements OnInit {
  //    console.log('ID : ' + id );
  //     this.bike = this.service.getBike(id);
       let id;
-      this.route.paramMap.subscribe((paramMap) => {id = +paramMap.get('id'),
-          this.service.getBike(id).subscribe(bike=>this.bike=bike);
-      this.editModel =this.bike.model;  }
+      this.route.paramMap.subscribe((paramMap) => {id = +paramMap.get("id"),
+          this.service.getBike(id).subscribe(bike=>{this.editModel =bike.model;
+                                                    this.bike=bike;
+                                                    this.editModel =this.bike.model;
+                                                   console.log('editModel : '+ this.editModel);
+          });
+        }
               
-      );
+      );  
+      
+    
       
  /*     console.log(id2);
       console.log(this.route.data);
@@ -45,14 +51,15 @@ export class BikeInfoComponent implements OnInit {
    /*   this.route.data.subscribe((data: { bike: Bike }) => {
           this.editModel = data.bike.model;
           this.bike = data.bike;
+            console.log('editModel : '+ this.editModel);
           console.log(data.bike);
-           } ); */
-      
+           } ); 
+     */ 
    /*       this.bike$ = this.route.paramMap.pipe(
                   switchMap((params: ParamMap) =>
                     this.service.getBike(params.get('id')))
           ); */  
-              console.log('ID : '+ this.bike.id);
+      //        console.log('ID : '+ this.bike.id);
           
         }
   }

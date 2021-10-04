@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 //import { BikeComponent } from './bike/bike.component';
@@ -18,7 +18,7 @@ import { BikesModule } from './bikes/bikes.module';
   imports: [
     BrowserModule,
     FormsModule,    
-    AppRoutingModule, BikesModule
+    AppRoutingModule, BikesModule,  HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
