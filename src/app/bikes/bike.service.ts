@@ -14,12 +14,13 @@ export class BikeService {
  //   private bikes$: BehaviorSubject<Bike[]> = new BehaviorSubject<Bike[]>(BIKES);
     private bikes: Bike[]=[];
 //    bikesUrl = 'http://localhost:8080/JPA_EJBRestfulService/webapi/Customer/bikes';
+    bikesUrl1 = 'http://demovertx1.herokuapp.com';
     constructor(private httpClient: HttpClient) {
        this.bikes=BIKES;
     }
 //    getBikes(): Observable<Bike[]> { return this.httpClient.get<Bike[]>(this.bikesUrl);    }
     
-    getBikes(): Observable<Bike[]> { return of (BIKES); }
+    getBikes(): Observable<Bike[]> {console.log(this.httpClient.get(this.bikesUrl1)); return of (BIKES); }
 
     //   getBikes() { return this.bikes$ }
     
