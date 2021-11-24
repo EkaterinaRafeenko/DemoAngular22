@@ -15,6 +15,7 @@ export class BikeListComponent implements OnInit {
    
     bikes$: Observable<Bike[]>;
     selectedId: number;
+   str1:Observable<string>;
     //  products: Product[] = [];
  //   bikes: Bike[]=[];
    
@@ -30,6 +31,7 @@ export class BikeListComponent implements OnInit {
                 return this.service.getBikes();
               })
             );
+      this.str1=this.service.getStr();
   }
  // onSelect(bike: Bike): void {
  //     this.selectedBike = bike;

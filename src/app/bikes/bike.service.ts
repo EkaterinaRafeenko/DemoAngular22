@@ -21,12 +21,18 @@ export class BikeService {
     }
 //    getBikes(): Observable<Bike[]> { return this.httpClient.get<Bike[]>(this.bikesUrl);    }
     
-    getBikes(): Observable<string> {this.httpClient.get<string>(this.bikesUrl1).
+    getBikes(): Observable<Bike[]> {this.httpClient.get<string>(this.bikesUrl1).
                                      subscribe(str=>{this.str=str;
                                                      console.log(str);}); 
-                                               return of (this.str); }
+                                               return of (BIKES); }
 
     //   getBikes() { return this.bikes$ }
+    getStr(): Observable<string>{this.httpClient.get<string>(this.bikesUrl1).
+                                 subscribe(str=>{this.str=str;
+                                 console.log(str);}); 
+                                 return of (this.str); 
+        
+                               }
     
     getBike(id: number | string): Observable<Bike> {
         return this.getBikes().pipe(
