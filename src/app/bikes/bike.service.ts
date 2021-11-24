@@ -14,7 +14,7 @@ export class BikeService {
  //   private bikes$: BehaviorSubject<Bike[]> = new BehaviorSubject<Bike[]>(BIKES);
     private bikes: Bike[]=[];
 //    bikesUrl = 'http://localhost:8080/JPA_EJBRestfulService/webapi/Customer/bikes';
-    bikesUrl1 = 'https://libred.herokuapp.com/ServletToBase4';
+    bikesUrl1 = 'libred.herokuapp.com/ServletToBase4';
     constructor(private httpClient: HttpClient) {
        this.bikes=BIKES;
     }
