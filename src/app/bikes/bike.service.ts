@@ -20,7 +20,9 @@ export class BikeService {
     }
 //    getBikes(): Observable<Bike[]> { return this.httpClient.get<Bike[]>(this.bikesUrl);    }
     
-    getBikes(): Observable<Bike[]> {console.log(this.httpClient.get(this.bikesUrl1)); return of (BIKES); }
+    getBikes(): Observable<Bike[]> {this.httpClient.get<string>(this.bikesUrl1).
+                                     subscribe(str=>(console.log(str))); 
+                                               return of (BIKES); }
 
     //   getBikes() { return this.bikes$ }
     
