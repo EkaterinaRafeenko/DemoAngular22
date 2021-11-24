@@ -15,14 +15,16 @@ export class BikeService {
     private bikes: Bike[]=[];
 //    bikesUrl = 'http://localhost:8080/JPA_EJBRestfulService/webapi/Customer/bikes';
     bikesUrl1 = 'libred.herokuapp.com/ServletToBase4';
+    str:string; 
     constructor(private httpClient: HttpClient) {
        this.bikes=BIKES;
     }
 //    getBikes(): Observable<Bike[]> { return this.httpClient.get<Bike[]>(this.bikesUrl);    }
     
-    getBikes(): Observable<Bike[]> {this.httpClient.get<string>(this.bikesUrl1).
-                                     subscribe(str=>{console.log(str);}); 
-                                               return of (BIKES); }
+    getBikes(): Observable<string> {this.httpClient.get<string>(this.bikesUrl1).
+                                     subscribe(str=>{this.str=str;
+                                                     console.log(str);}); 
+                                               return of (this.str); }
 
     //   getBikes() { return this.bikes$ }
     
