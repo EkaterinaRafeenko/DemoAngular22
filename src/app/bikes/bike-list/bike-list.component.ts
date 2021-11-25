@@ -15,7 +15,7 @@ export class BikeListComponent implements OnInit {
    
     bikes$: Observable<Bike[]>;
     selectedId: number;
-   str1$:Observable<string>;
+   str1$:Observable<any>;
     //  products: Product[] = [];
  //   bikes: Bike[]=[];
    
