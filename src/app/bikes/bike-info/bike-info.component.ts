@@ -14,7 +14,7 @@ import { switchMap } from "rxjs/operators";
 })
 export class BikeInfoComponent implements OnInit {
     bike$: Observable<Bike>;
- bike: Bike;
+@Input() bike: Bike;
 @Input() editModel: string;
 
   constructor(private service: BikeService,
